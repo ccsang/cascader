@@ -1,10 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { isLeaf, toPathKey } from '../utils/commonUtil';
-import CascaderContext from '../context';
-import Checkbox from './Checkbox';
 import type { DefaultOptionType, SingleValueType } from '../Cascader';
+import CascaderContext from '../context';
 import { SEARCH_MARK } from '../hooks/useSearchOptions';
+import { isLeaf, toPathKey } from '../utils/commonUtil';
+import Checkbox from './Checkbox';
 
 export const FIX_LABEL = '__cascader_fix_label__';
 
@@ -112,13 +111,11 @@ export default function Column({
         }) => {
           // >>>>> Open
           const triggerOpenPath = () => {
-            if (!disabled) {
-              const nextValueCells = [...fullPath];
-              if (hoverOpen && isMergedLeaf) {
-                nextValueCells.pop();
-              }
-              onActive(nextValueCells);
+            const nextValueCells = [...fullPath];
+            if (hoverOpen && isMergedLeaf) {
+              nextValueCells.pop();
             }
+            onActive(nextValueCells);
           };
 
           // >>>>> Selection
