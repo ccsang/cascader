@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type {
   CascaderProps,
-  InternalFieldNames,
   DefaultOptionType,
+  InternalFieldNames,
   SingleValueType,
 } from './Cascader';
 
@@ -21,6 +21,7 @@ export interface CascaderContextProps {
   expandIcon?: React.ReactNode;
   loadingIcon?: React.ReactNode;
   dropdownMenuColumnStyle?: React.CSSProperties;
+  titles?: React.ReactNode[];
 }
 
 const CascaderContext = React.createContext<CascaderContextProps>(null);

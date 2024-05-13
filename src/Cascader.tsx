@@ -110,6 +110,8 @@ interface BaseCascaderProps<OptionType extends BaseOptionType = DefaultOptionTyp
   // Icon
   expandIcon?: React.ReactNode;
   loadingIcon?: React.ReactNode;
+
+  titles?: React.ReactNode[];
 }
 
 type OnSingleChange<OptionType> = (value: SingleValueType, selectOptions: OptionType[]) => void;
@@ -214,6 +216,8 @@ const Cascader = React.forwardRef<CascaderRef, InternalCascaderProps>((props, re
     children,
     dropdownMatchSelectWidth = false,
     showCheckedStrategy = SHOW_PARENT,
+
+    titles = [],
     ...restProps
   } = props;
 
@@ -448,6 +452,7 @@ const Cascader = React.forwardRef<CascaderRef, InternalCascaderProps>((props, re
       expandIcon,
       loadingIcon,
       dropdownMenuColumnStyle,
+      titles,
     }),
     [
       mergedOptions,
@@ -464,6 +469,7 @@ const Cascader = React.forwardRef<CascaderRef, InternalCascaderProps>((props, re
       expandIcon,
       loadingIcon,
       dropdownMenuColumnStyle,
+      titles,
     ],
   );
 

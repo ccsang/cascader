@@ -1,5 +1,4 @@
 /* eslint-disable default-case */
-import classNames from 'classnames';
 import { useBaseProps } from 'rc-select';
 import type { RefOptionListProps } from 'rc-select/lib/OptionList';
 import * as React from 'react';
@@ -35,6 +34,7 @@ const RefOptionList = React.forwardRef<RefOptionListProps>((props, ref) => {
     dropdownPrefixCls,
     loadData,
     expandTrigger,
+    titles,
   } = React.useContext(CascaderContext);
 
   const mergedPrefixCls = dropdownPrefixCls || prefixCls;
@@ -195,14 +195,19 @@ const RefOptionList = React.forwardRef<RefOptionListProps>((props, ref) => {
     const activeValue = activeValueCells[index];
 
     return (
-      <Column
-        key={index}
-        {...columnProps}
-        prefixCls={mergedPrefixCls}
-        options={col.options}
-        prevValuePath={prevValuePath}
-        activeValue={activeValue}
-      />
+      <div key={index} className={`${mergedPrefixCls}-column-wrapper`}>
+        {titles[index] ? (
+          <div className={`${mergedPrefixCls}-column-title}`}>{titles[index]}</div>
+        ) : null}
+        <Column
+          key={index}
+          {...columnProps}
+          prefixCls={mergedPrefixCls}
+          options={col.options}
+          prevValuePath={prevValuePath}
+          activeValue={activeValue}
+        />
+      </div>
     );
   });
 
