@@ -198,7 +198,7 @@ const RefOptionList = React.forwardRef<RefOptionListProps>((props, ref) => {
     return (
       <div key={index} className={`${mergedPrefixCls}-column-wrapper`}>
         {titles[index] ? (
-          <div className={`${mergedPrefixCls}-column-title}`}>{titles[index]}</div>
+          <div className={`${mergedPrefixCls}-column-title`}>{titles[index]}</div>
         ) : null}
         <Column
           key={index}
